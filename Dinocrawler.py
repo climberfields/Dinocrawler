@@ -38,11 +38,17 @@ class Dino:
         self._game = game;
         self.jump();
         time.sleep(.5)
-    def is_running(self)
+    def is_running(self):
         return self._game.get_playing()
-    def is_crashed(self)
+    def is_crashed(self):
         return self._game.get_crasehd()
-    def jump(self)
+    def jump(self):
         return self._game.press_up()
-    def duck(self)
+    def duck(self):
         return self._game.press_down()
+    def pause(self):
+        return self._driver.execute_script("return Runner.instance_.stop()")
+    def resume(self):
+        return self._driver.execute_script("return Runner.instance_.play()")
+    def end(self):
+        return._driver.close
