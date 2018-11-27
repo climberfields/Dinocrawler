@@ -15,7 +15,11 @@ class Game:
         def restart(self):
             self._driver.execute_script("runner.instance_.restart()")
 
+
             time.sleep(0.25)
+
+        def press_down(self):
+            self._driver.find_element_by_tag_name("body").send_keys(Keys.ARROW_DOWN)
         def press_up(self):
             self._driver.find_element_by_tag_name("body").send_keys(Keys.ARROW_UP)
         def get_score(self):
@@ -28,3 +32,17 @@ class Game:
             return self._driver.execute_script("return Runner.instance_.play()")
         def end(self):
             self._driver.close()
+
+class Dino:
+    def __init__(self, game):
+        self._game = game;
+        self.jump();
+        time.sleep(.5)
+    def is_running(self)
+        return self._game.get_playing()
+    def is_crashed(self)
+        return self._game.get_crasehd()
+    def jump(self)
+        return self._game.press_up()
+    def duck(self)
+        return self._game.press_down()
